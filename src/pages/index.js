@@ -1,11 +1,21 @@
 import Head from "next/head";
-import { FaUsers, FaHardHat, FaDumbbell, FaLinkedin, FaTwitter, FaFacebook, FaFacebookSquare, FaBars } from "react-icons/fa";
-// function toggleNavbar(collapseID) {
-//   document.getElementById(collapseID).classList.toggle("hidden");
-//   document.getElementById(collapseID).classList.toggle("block");
-// }
+import { useState } from "react";
+import {
+  FaUsers,
+  FaHardHat,
+  FaDumbbell,
+  FaLinkedin,
+  FaTwitter,
+  FaFacebook,
+  FaFacebookSquare,
+  FaBars,
+} from "react-icons/fa";
 
 export default function Home() {
+  const [nav, setNav] = useState(false);
+  const handleClick = () => {
+    setNav(!nav);
+  };
   return (
     <>
       <Head>
@@ -26,17 +36,13 @@ export default function Home() {
             </a>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              // onclick={toggleNavbar('hidden')}
+              onClick={handleClick}
             >
               <FaBars className="text-white" />
-             
             </button>
           </div>
-          <div
-            className="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
-            id="example-collapse-navbar"
-          >
+
+          <div className="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden">
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               {/* <!-- Icon 1 --> */}
               <li className="flex items-center">
@@ -45,7 +51,7 @@ export default function Home() {
                   href="#pablo"
                 >
                   <FaFacebook className="text-orange-500 text-lg leading-lg" />
-                 
+
                   <span className="lg:hidden inline-block ml-2">Share</span>
                 </a>
               </li>
@@ -56,7 +62,7 @@ export default function Home() {
                   href="#pablo"
                 >
                   <FaTwitter className="text-orange-500 text-lg leading-lg" />
-                  <i ></i>
+                  <i></i>
                   <span className="lg:hidden inline-block ml-2">Tweet</span>
                 </a>
               </li>
@@ -67,7 +73,7 @@ export default function Home() {
                   href="#pablo"
                 >
                   <FaLinkedin className="text-orange-500 text-lg leading-lg" />
-                  
+
                   <span className="lg:hidden inline-block ml-2">Profile</span>
                 </a>
               </li>
@@ -411,19 +417,18 @@ export default function Home() {
                   type="button"
                 >
                   <FaTwitter className="flex text-orange-500" />
-                  
                 </button>
                 <button
                   className="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
                   type="button"
                 >
-                   <FaFacebookSquare className="flex text-orange-500" />
+                  <FaFacebookSquare className="flex text-orange-500" />
                 </button>
                 <button
                   className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
                   type="button"
                 >
-                   <FaLinkedin className="flex text-orange-500" />
+                  <FaLinkedin className="flex text-orange-500" />
                 </button>
               </div>
             </div>
